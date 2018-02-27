@@ -3,6 +3,7 @@
 As the application sends search requests to the SEEK API hosted elsewhere, the modern browsers need authorization from the server to prevent Cross Origin Request Forgery. Therefore, they prevent it from accessing the SEEK API unless the following headers are included in the response from the API.
 
 **Access-Control-Allow-Origin: {app_origin}**
+
 As the SEEK API is merely an elasticsearch instance, this could be achieved using a proxy server such as nginx that intercepts the response to add the relevant headers to the response from Elasticsearch. For security reasons, it is recommended that the API does not allow any origin to send cross origin requests to it, as it can result in attacks against the elasticsearch index.
 
 **Getting Started**
