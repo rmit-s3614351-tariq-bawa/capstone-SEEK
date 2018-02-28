@@ -1,4 +1,4 @@
-// Instantiates the Paginations Plug-in
+// Instantiates the Paginations Plugin
 var $pagination = $('#pagination');
 $pagination.twbsPagination({
     totalPages: 10,
@@ -6,27 +6,36 @@ $pagination.twbsPagination({
     onPageClick: (evt, page) => {
     // Destroys the old data from the page
     document.querySelector('#elements').innerHTML = "";
-// Calls the fetchResults function which fetches the right result set and renders it
+// Calls the fetchResults function which fetches the right resultset and renders it
 fetchResults(page);
 },
 });
 
 function constructUrl(page) {
-	
  query = window.location.search.substring(1).split('&');
- 
+ console.log(window.location.search);
  params = [];
  
  query.map((val) => {
-	var temp = val.split('=');
-	params[temp[0]] = temp[1];
+    var temp = val.split('=');
+    if (temp[1] != "") {
+      params[temp[0]] = temp[1];
+    }
 	return val;
  });
 
-var url = `${config.serverName}:${config.port}/jobs/_search?from=${(page-1)*config.size}&size=${config.size}&q=`;
 
+var url = `${config.serverName}:${config.port}/jobs/_search?from=${(page-1)*config.size}&size=${config.size}`;
+
+if (Object.keys(params).length > 0) {
+    url = url + `&q=`;
+}
 for (key in params) {
-	url = url+`${key}:${params[key]}%20`;
+    if (`${key}` == "keywords") {
+        url = url+`${params[key]}%20`;
+    } else {
+        url = url+`${key}:${params[key]}%20`;
+    }
 }
 
 url.trim();
@@ -51,7 +60,8 @@ async function fetchResults(page = 1) {
     //   size: 20
     // }
     
-    
+    // THIS NEEDS TO BE REPLACED BY A URL POINTING TO THE API
+    // "http://" + config.servername +":" + config.portnumber + config.search +"?q = " + params example
     var url = constructUrl(page);
 	
 	console.log(url);
