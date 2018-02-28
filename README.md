@@ -19,7 +19,7 @@ Preferably a modern web browser i.e. Google Chrome, Safari, Mozilla Firefox
 
 3.	XAMPP
 - Visit the following link https://www.apachefriends.org/download.html
-- Download the appropriate XAMPP version according to your operating system specifications
+- Download XAMPP version (v3.2.2)
 - Open the downloaded file
 - Follow the step by step installation wizard to successfully install XAMPP to your system
 
