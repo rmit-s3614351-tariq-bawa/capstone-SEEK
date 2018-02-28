@@ -25,7 +25,7 @@ Preferably a modern web browser i.e. Google Chrome, Safari, Mozilla Firefox
 
 **Installing**
 1.	Visit the following link: https://raw.githubusercontent.com/rmit-s3614351-tariq-bawa/SEEK/master/SEEK%20updated.zip
-2.	The cloud 9 workspace (zip) file will begin to download automatically
+2.	The workspace (zip) file will begin to download automatically
 3.	Locate the htdocs folder in the XAMPP application folder installed in your system. The common default path is as follows:
 Windows: C:\xampp\htdocs
 Linux: /opt/lampp/htdocs
